@@ -1,3 +1,4 @@
+import 'package:app_autenticacion/my_routes.dart';
 import 'package:flutter/material.dart';
 
 
@@ -23,12 +24,10 @@ class Autenticacion extends StatelessWidget {
              padding: const EdgeInsets.all(16),
              child: SingleChildScrollView(
               child: Column(
-                crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   Form(
                     key: formKey,
                     child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
                         const SizedBox(height: 20,),
                         const Text('Bienvenido', style: TextStyle(fontSize: 22, color: Colors.black87),),
@@ -49,10 +48,10 @@ class Autenticacion extends StatelessWidget {
                         ElevatedButton(
                           onPressed: () {
                             
-                            final usuario = emailController.text;
+                            final email = emailController.text;
                             final password = passwordController.text;
 
-                            if (usuario.isEmpty)
+                            if (email.isEmpty)
                             {
                                ScaffoldMessenger.of(context).showSnackBar(
                                   const SnackBar(content:Text('El Email es obligatorio'))
@@ -62,7 +61,28 @@ class Autenticacion extends StatelessWidget {
                             if(password.isEmpty)
                             {
                                   ScaffoldMessenger.of(context).showSnackBar(
-                                  const SnackBar(content:Text('El Email es obligatorio'))
+                                  const SnackBar(content:Text('La contraseña es obligatoria'))
+                             );
+                            }
+
+                            if(!email.contains('@') || !email.contains('.'))
+                            {
+                              ScaffoldMessenger.of(context).showSnackBar(
+                                  const SnackBar(content:Text('El formato de email es incorrecto'))
+                             );
+                            }
+
+                            if (email == 'wyhernandezr@unah.hn' && password == '20222001369'
+                                || (email == 'cdmontoyaa@unah.hn' && password == '20222001250'))
+                            {
+
+                                 Navigator.pushReplacementNamed(context, MyRoutes.inicio.name);
+
+                            }
+                            else
+                            {
+                                 ScaffoldMessenger.of(context).showSnackBar(
+                                  const SnackBar(content:Text('El email o la contraseña son incorrectos'))
                              );
                             }
 
