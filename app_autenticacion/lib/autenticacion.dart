@@ -2,6 +2,8 @@ import 'package:app_autenticacion/my_routes.dart';
 import 'package:flutter/material.dart';
 
 
+
+
 class Autenticacion extends StatelessWidget {
   Autenticacion({
     super.key,
@@ -76,7 +78,7 @@ class Autenticacion extends StatelessWidget {
                                 || (email == 'cdmontoyaa@unah.hn' && password == '20222001250'))
                             {
 
-                                 Navigator.pushReplacementNamed(context, MyRoutes.inicio.name);
+                                 Navigator.pushReplacementNamed(context, MyRoutes.pantallafinal.name);
 
                             }
                             else
@@ -85,15 +87,25 @@ class Autenticacion extends StatelessWidget {
                                   const SnackBar(content:Text('El email o la contraseña son incorrectos'))
                              );
                             }
-
+                            
                           }, 
                           child: const Row(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               Text('Iniciar sesion'),
                             ],
-                          ))
-                      ],
+                          )),
+                          const SizedBox(height: 10,),
+                          const Text("No tienes cuenta? Registrate"),
+                  ElevatedButton(onPressed: () {
+
+                 Navigator.pushReplacementNamed(context, MyRoutes.registro.name);
+
+                  },
+                  
+                  
+                  
+                  child: const Text('Registrar'),)   ],
                     )
                   )
                 ],
