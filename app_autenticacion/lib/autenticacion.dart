@@ -85,8 +85,9 @@ class Autenticacion extends StatelessWidget {
                         final email = emailController.text;
                         final password = passwordController.text;
 
-                        if(formKey.currentState!.validate() && 
-                        ( email == 'wyhernandezr@unah.hn' && password == '20222001369')
+                        if(formKey.currentState!.validate())
+                        {
+                          if (( email == 'wyhernandezr@unah.hn' && password == '20222001369')
                         || (email == 'cdmontoyaa@unah.hn' && password == '20222001250'))
                         {
                            Navigator.pushReplacementNamed(context, MyRoutes.pantallafinal.name);
@@ -97,7 +98,7 @@ class Autenticacion extends StatelessWidget {
                                   const SnackBar(content:Text('El email o la contraseña son incorrectos'))
                           );
                         }
-
+                      }
                       },
                       child: const Row(
                         mainAxisAlignment: MainAxisAlignment.center,

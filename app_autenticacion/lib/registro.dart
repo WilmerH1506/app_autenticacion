@@ -110,7 +110,7 @@ child: Column(
          return null;
       }, 
       obscureText: false, 
-      tamMax: 20,
+      tamMax: 30,
       labelText: 'Email', 
       prefixIcon: const Icon(Icons.email_rounded),
       bordes: const OutlineInputBorder(),
@@ -200,9 +200,11 @@ child: Column(
              final password = passwordController.text;
              final confirm = confirmpasswordcontroller.text;
 
-              if (formKey.currentState!.validate() && (password == confirm )) 
+              if (formKey.currentState!.validate()) 
             {
-                  print('formulario valido',);
+                  if (password == confirm)
+                  {
+                      print('formulario valido',);
                   print(namecontroller.text);
                   print(apellidocontroller.text);
                   print(emailController.text);
@@ -217,12 +219,13 @@ child: Column(
                 telfonocontroller.clear();
                 passwordController.clear();
                 confirmpasswordcontroller.clear();
-            }
-            else
-            {
-              ScaffoldMessenger.of(context).showSnackBar(
+                  } 
+                  else
+                  {
+                     ScaffoldMessenger.of(context).showSnackBar(
                                   const SnackBar(content:Text('Las contraseñas ingresadas no coinciden'))
                           );
+                  }
             }
         }, 
         ),
