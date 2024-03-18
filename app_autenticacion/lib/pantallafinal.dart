@@ -1,3 +1,5 @@
+import 'package:app_autenticacion/autenticacion.dart';
+import 'package:app_autenticacion/registro.dart';
 import 'package:flutter/material.dart';
 import 'package:app_autenticacion/my_routes.dart';
 
@@ -6,6 +8,7 @@ void main() {
     home: PantallaFinal(),
   ));
 }
+
 
 class PantallaFinal extends StatelessWidget {
   const PantallaFinal({super.key});
@@ -37,7 +40,12 @@ class PantallaFinal extends StatelessWidget {
               '¡Bienvenido de nuevo!',
               style: TextStyle(fontSize: 24),
             ),
+             
+             Text(xi),
             const SizedBox(height: 10),
+
+           
+
             const Text(
               'Has iniciado sesión exitosamente.',
               style: TextStyle(fontSize: 16),

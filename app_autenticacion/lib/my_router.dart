@@ -1,5 +1,3 @@
-
-
 import 'package:app_autenticacion/bienvenida.dart';
 import 'package:app_autenticacion/pantallafinal.dart';
 import 'package:flutter/material.dart';

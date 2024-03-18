@@ -1,10 +1,12 @@
 import 'package:app_autenticacion/my_routes.dart';
 import 'package:flutter/material.dart';
 
+final emailController = TextEditingController();
+final xi = emailController.text;
 class Autenticacion extends StatelessWidget {
   Autenticacion({super.key});
 
-  final emailController = TextEditingController();
+  
   final passwordController = TextEditingController();
   final formKey = GlobalKey<FormState>();
 
@@ -19,6 +21,7 @@ class Autenticacion extends StatelessWidget {
         icon: const Icon(Icons.arrow_back),
         onPressed: ()
          {
+          emailController.clear();
                 Navigator.pushReplacementNamed(context, MyRoutes.Bienvenida.name);      
          },
        ),
@@ -85,10 +88,12 @@ class Autenticacion extends StatelessWidget {
                         final email = emailController.text;
                         final password = passwordController.text;
 
-                        if(formKey.currentState!.validate() && 
-                        ( email == 'wyhernandezr@unah.hn' && password == '20222001369')
+                        if(formKey.currentState!.validate())
+                        {
+                          if (( email == 'wyhernandezr@unah.hn' && password == '20222001369')
                         || (email == 'cdmontoyaa@unah.hn' && password == '20222001250'))
                         {
+                        
                            Navigator.pushReplacementNamed(context, MyRoutes.pantallafinal.name);
                         }
                         else
@@ -97,7 +102,7 @@ class Autenticacion extends StatelessWidget {
                                   const SnackBar(content:Text('El email o la contraseña son incorrectos'))
                           );
                         }
-
+                      }
                       },
                       child: const Row(
                         mainAxisAlignment: MainAxisAlignment.center,
