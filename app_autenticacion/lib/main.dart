@@ -63,7 +63,9 @@ class PageNotFound extends StatelessWidget {
             Text('La ruta $name no existe'),
             ElevatedButton(
               onPressed: () {
-                Navigator.pushReplacementNamed(context, MyRoutes.registro.name);
+               
+                Navigator.pushReplacementNamed(context, MyRoutes.inicio.name);
+                
               },
               child: const Text('Ir a la página principal'),
             ),
