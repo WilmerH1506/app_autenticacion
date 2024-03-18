@@ -36,7 +36,7 @@ class _MyHomePageState extends State<MyHomePage> {
   
     return MaterialApp(
         title: 'Material app',
-        initialRoute: MyRoutes.inicio.name,
+        initialRoute: MyRoutes.Bienvenida.name,
         routes: routes,
         onGenerateRoute: (settings) {
           return MaterialPageRoute(
@@ -64,7 +64,7 @@ class PageNotFound extends StatelessWidget {
             ElevatedButton(
               onPressed: () {
                
-                Navigator.pushReplacementNamed(context, MyRoutes.inicio.name);
+                Navigator.pushReplacementNamed(context, MyRoutes.Bienvenida.name);
                 
               },
               child: const Text('Ir a la página principal'),

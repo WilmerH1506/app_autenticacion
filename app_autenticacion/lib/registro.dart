@@ -29,7 +29,7 @@ class Registro extends StatelessWidget {
 
 icon: const Icon(Icons.arrow_back),
 onPressed: (){
-                Navigator.pushReplacementNamed(context, MyRoutes.inicio.name);
+                Navigator.pushReplacementNamed(context, MyRoutes.Bienvenida.name);
                 namecontroller.clear();
                 apellidocontroller.clear();
                 emailController.clear();
@@ -37,7 +37,6 @@ onPressed: (){
                 passwordController.clear();
                 confirmpasswordcontroller.clear();
 },
-
        ),
       ),
      body:  Padding(padding: const EdgeInsets.all(16),
@@ -48,8 +47,8 @@ child: Column(
     child:
      Column( children: [
       const SizedBox(height: 20,),
-       const Text('Bienvenido', style: TextStyle(fontSize: 22, color: Colors.black87),),
-
+       const Text('Crear Usuario', style: TextStyle(fontSize: 22, color: Colors.black87),),
+       const SizedBox(height: 20,),
        CustomInput(
          controller: namecontroller, 
          validator: (value) 

@@ -2,7 +2,7 @@ import 'package:app_autenticacion/my_routes.dart';
 import 'package:flutter/material.dart';
 
 class Autenticacion extends StatelessWidget {
-  Autenticacion({Key? key}) : super(key: key);
+  Autenticacion({super.key});
 
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
@@ -11,10 +11,17 @@ class Autenticacion extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Inicio de sesión'),
+       appBar: AppBar(
+        title: const Text('Iniciar Sesion'),
         centerTitle: true,
-        backgroundColor: Colors.blueGrey,
+        backgroundColor: Colors.redAccent,
+        leading: IconButton(
+        icon: const Icon(Icons.arrow_back),
+        onPressed: ()
+         {
+                Navigator.pushReplacementNamed(context, MyRoutes.Bienvenida.name);      
+         },
+       ),
       ),
       body: Padding(
         padding: const EdgeInsets.all(16),
@@ -27,7 +34,7 @@ class Autenticacion extends StatelessWidget {
                   children: [
                     const SizedBox(height: 20),
                     const Text(
-                      'Bienvenido',
+                      'Introduzca sus credenciales',
                       style: TextStyle(fontSize: 22, color: Colors.black87),
                     ),
                     const SizedBox(height: 20),
@@ -100,13 +107,6 @@ class Autenticacion extends StatelessWidget {
                       ),
                     ),
                     const SizedBox(height: 10),
-                    const Text("¿No tienes cuenta? Regístrate"),
-                    ElevatedButton(
-                      onPressed: () {
-                        Navigator.pushReplacementNamed(context, MyRoutes.registro.name);
-                      },
-                      child: const Text('Registrar'),
-                    ),
                   ],
                 ),
               ),
@@ -118,8 +118,10 @@ class Autenticacion extends StatelessWidget {
   }
 }
 
+
 typedef Validator = String? Function(String?);
 
+// ignore: must_be_immutable
 class CustomInput extends StatefulWidget {
    CustomInput({
     Key? key,

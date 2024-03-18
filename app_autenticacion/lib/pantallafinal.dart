@@ -1,79 +1,62 @@
-import 'package:app_autenticacion/my_routes.dart';
 import 'package:flutter/material.dart';
+import 'package:app_autenticacion/my_routes.dart';
 
 void main() {
-  runApp(MaterialApp(
+  runApp(const MaterialApp(
     home: PantallaFinal(),
   ));
 }
 
 class PantallaFinal extends StatelessWidget {
+  const PantallaFinal({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Formulario de Correo Electrónico'),
+        title: const Text('Gracias por elegir nuestra app'),
+        leading: 
+          IconButton(
+            onPressed: () {
+              Navigator.pushReplacementNamed(context, MyRoutes.Bienvenida.name);
+            },
+            icon: const Icon(Icons.exit_to_app),
+          ),
       ),
-      body: Padding(
-        padding: EdgeInsets.all(16),
+      body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text(
-              'Ingresa tu correo electrónico',
-              style: TextStyle(fontSize: 20),
+            const Icon(
+              Icons.check_circle,
+              color: Colors.green,
+              size: 100,
             ),
-            SizedBox(height: 20),
-            TextFormField(
-              keyboardType: TextInputType.emailAddress,
-              decoration: InputDecoration(
-                labelText: 'Correo Electrónico',
-                hintText: 'example@example.com',
-                prefixIcon: Icon(Icons.email),
-                border: OutlineInputBorder(),
-              ),
+            const SizedBox(height: 20),
+            const Text(
+              '¡Bienvenido de nuevo!',
+              style: TextStyle(fontSize: 24),
             ),
-            SizedBox(height: 20),
+            const SizedBox(height: 10),
+            const Text(
+              'Has iniciado sesión exitosamente.',
+              style: TextStyle(fontSize: 16),
+            ),
+            const SizedBox(height: 20),
             ElevatedButton(
               onPressed: () {
-                // Aquí es donde navegamos a la siguiente pantalla
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => SegundaPantalla()),
-                );
+                // Acción al presionar el botón
               },
-              child: Text('Enviar'),
+              child: const Text('Comenzar'),
+              style: ElevatedButton.styleFrom(
+                padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 16),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(30),
+                ),
+              ),
             ),
           ],
         ),
-      ),
-    );
-  }
-}
-
-class SegundaPantalla extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('Segunda Pantalla'),
-        leading: IconButton(icon: const Icon(Icons.ac_unit),
-        onPressed: (){
-Navigator.pushReplacementNamed(context, MyRoutes.inicio.name);
-
-        }),
-      ),
-      body: const Center(
-        child:  Text(
-          '¡Correo electrónico enviado!',
-          style: TextStyle(fontSize: 20),
-        ),
-    
-
-    
-      
-      
-      
       ),
     );
   }
